@@ -2755,7 +2755,7 @@ function getAllShows() {
       "name": "Cosmos",
       "type": "Documentary",
       "language": "English",
-      "genres": [],
+      "genres": ["Space, Scientific"],
       "status": "Running",
       "runtime": 60,
       "premiered": "1980-09-28",
