@@ -129,12 +129,15 @@ window.onload = setup;
           }
    }
 
+
+
+
       let livesrch=document.querySelector("#livesrch")
           livesrch.addEventListener("keyup", function(){
 
             let allshows=getAllShows();
             let filtered=allshows.filter((o)=>{ 
-                if(o.name.toLowerCase().includes(livesrch.value.toLowerCase())){
+                if(o.name.toLowerCase().includes(livesrch.value.toLowerCase()) && o.summary.toLowerCase().includes(livesrch.value.toLowerCase())){
 
                   return true
                 }
@@ -155,7 +158,7 @@ window.onload = setup;
       for(let i=0; i<getAllShows().length; i++){
       let options=document.createElement("option")
           options.innerHTML=getAllShows()[i].name
-          options.setAttribute("href", getAllShows()[i].url)
+         
           dropdown.appendChild(options)
     
     }
