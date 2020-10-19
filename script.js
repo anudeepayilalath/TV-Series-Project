@@ -4,8 +4,12 @@ function setup() {
   makePageForEpisodes(allEpisodes);
   //tvShows();
   //withBts(allshows);
+
+  dropDown();
+
   let allshows=getAllShows();
            withBts(allshows);
+           
 }
 
 function makePageForEpisodes(episodeList) {
@@ -131,37 +135,78 @@ window.onload = setup;
 
 
 
-
+      //livesearch area
       let livesrch=document.querySelector("#livesrch")
           livesrch.addEventListener("keyup", function(){
 
             let allshows=getAllShows();
-            let filtered=allshows.filter((o)=>{ 
-                if(o.name.toLowerCase().includes(livesrch.value.toLowerCase()) && o.summary.toLowerCase().includes(livesrch.value.toLowerCase())){
+            let filtered=allshows.filter((movie)=>{ 
+                if(movie.name.toLowerCase().includes(livesrch.value.toLowerCase()) || movie.summary.toLowerCase().includes(livesrch.value.toLowerCase())){
 
                   return true
                 }
-                
-
-
             })
 
             let listofshows=document.getElementById("listofshows")
+            console.log(filtered)
                   listofshows.innerHTML="";
                   withBts(filtered);
             
       })
 
 
-      let dropdown=document.querySelector("#inputGroupSelect04")
       
-      for(let i=0; i<getAllShows().length; i++){
-      let options=document.createElement("option")
-          options.innerHTML=getAllShows()[i].name
-         
-          dropdown.appendChild(options)
-    
-    }
+//dropdown section
+          const dropDown=()=>{
+            let dropdown=document.querySelector("#inputGroupSelect04")
+      
+              for(let i=0; i<getAllShows().length; i++){
+                
+              let options=document.createElement("option")
+                  options.setAttribute("id", i);
+                  options.innerHTML=getAllShows()[i].name
+                  
+
+                  dropdown.appendChild(options)
+                  
+                  
+}
+              let show=document.getElementById(32)
+                  let test;
+                  if(test===32){
+                    console.log(show)
+                  }
+
+                  show.addEventListener("click", function(){
+
+                    // let listofshows=document.getElementById("listofshows")
+                              
+                    
+                        listofshows.innerHTML="Test"
+                        // alert("Hi")
+        
+                  })
+              
+              
+             
+
+          }
+
 
 
           
+
+
+//functioning of Dropdown
+
+          // let option=document.getElementsByTagName("option")
+
+          // option.addEventListener("click", function(){
+
+          //   // let listofshows=document.getElementById("listofshows")
+          //             console.log(listofshows)
+            
+          //       // listofshows.innerHTML="Test"
+          //       alert("Hi")
+
+          // })
