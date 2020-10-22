@@ -1,14 +1,15 @@
 //You can edit ALL of the code here
-function setup() {
+function  setup() {
   const allEpisodes = getAllEpisodes();
   makePageForEpisodes(allEpisodes);
   //tvShows();
   //withBts(allshows);
 
+  
   dropDown();
-
   let allshows=getAllShows();
-           withBts(allshows);
+            withBts(allshows);
+           
            
 }
 
@@ -137,7 +138,7 @@ window.onload = setup;
 
       //livesearch area
       let livesrch=document.querySelector("#livesrch")
-          livesrch.addEventListener("keyup", function(){
+          livesrch.addEventListener("keydown", function(){
 
             let allshows=getAllShows();
             let filtered=allshows.filter((movie)=>{ 
@@ -158,39 +159,29 @@ window.onload = setup;
       
 //dropdown section
           const dropDown=()=>{
-            let dropdown=document.querySelector("#inputGroupSelect04")
-      
+            
+            let list=document.querySelector("#inputGroupSelect04")
               for(let i=0; i<getAllShows().length; i++){
-                
-              let options=document.createElement("option")
-                  options.setAttribute("id", i);
-                  options.innerHTML=getAllShows()[i].name
-                  
-
-                  dropdown.appendChild(options)
-                  
-                  
-}
-              let show=document.getElementById(32)
-                  let test;
-                  if(test===32){
-                    console.log(show)
-                  }
-
-                  show.addEventListener("click", function(){
-
-                    // let listofshows=document.getElementById("listofshows")
-                              
-                    
-                        listofshows.innerHTML="Test"
-                        // alert("Hi")
-        
-                  })
-              
-              
+                let show=document.createElement("option")
+               //show.setAttribute("id", i);
+                show.innerHTML=getAllShows()[i].name
+                list.appendChild(show)
+              }
+            let showOne=document.getElementById("inputGroupSelect04")
+            showOne.addEventListener("click", function(){
+            let onlyOne=showOne.options[showOne.selectedIndex]
+              console.log(onlyOne.innerHTML)
+              console.log(showOne.selectedIndex)
+            
+            
+            let selectedMovie=getAllShows()[showOne.selectedIndex]
+              console.log(selectedMovie)
+            listofshows.innerHTML=""
+              withBts([selectedMovie])
              
 
-          }
+          })
+        }
 
 
 
