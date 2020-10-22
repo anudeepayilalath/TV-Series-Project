@@ -174,7 +174,7 @@ window.onload = setup;
               console.log(showOne.selectedIndex)
             
             
-            let selectedMovie=getAllShows()[showOne.selectedIndex]
+            let selectedMovie=getAllShows()[showOne.selectedIndex-1]
               console.log(selectedMovie)
             listofshows.innerHTML=""
               withBts([selectedMovie])
@@ -201,3 +201,14 @@ window.onload = setup;
           //       alert("Hi")
 
           // })
+
+
+          let logotx=document.getElementById("logotxt")
+              logotx.addEventListener("click", function(){
+
+
+                let listofshows=document.getElementById("listofshows")
+            
+                  listofshows.innerHTML="";
+                  withBts(getAllShows());
+              })
